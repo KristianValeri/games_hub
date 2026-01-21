@@ -1,0 +1,47 @@
+.img_play{
+  width:100px;
+  
+}
+.option_player{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.button_player_options{
+  display: flex;
+  margin: auto;
+  padding:var(--rtc-padding-s);
+  cursor: pointer;
+  border-radius: 10%;
+  margin-top: 30px;
+}
+.player_points{
+  font-size:50px;
+  margin-left: var(--rtc-margin-s);
+  color:var(--rtc-color-2)
+}
+@media (max-width: 768px){
+  .img_play{
+    width: 50px;
+  }
+  .player_points{
+    font-size: 20px;
+  }
+}
+@media(max-width:480px){
+  .img_play{
+    width: 25px;
+  }
+  .button_games{
+    font-size: 20px;
+  }
+}
+@media (max-width:320px){
+  .img_play{
+    width: 20px;
+  }
+  .button_games{
+    font-size: 15px;
+  }
+}

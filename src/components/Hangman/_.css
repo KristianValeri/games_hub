@@ -1,0 +1,22 @@
+.hangman_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-family: monospace;
+  font-size: 18px;
+  color:var(--rtc-color-1);
+  gap:var(--rtc-gap-s)
+}
+@media(max-width:480px){
+.hangman_section{
+    flex-direction: column;
+    gap:var(--rtc-gap-s)
+  }
+}
+@media(max-width:320px){
+  .hangman_section{
+    flex-direction: column;
+    gap:var(--rtc-gap-s)
+  }
+}

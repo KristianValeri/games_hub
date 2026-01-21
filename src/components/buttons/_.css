@@ -1,0 +1,31 @@
+
+.section_buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:var(--rtc-gap-l);
+  padding:var(--rtc-padding-l)
+}
+.button_games{
+  padding: var(--rtc-padding-s) ;
+  border-radius: var(--rtc-br);
+  background-color:var(--rtc-color-1);
+  cursor: pointer;
+  font-size:20px ;
+}
+.button_games:hover{
+background-color: var(--rtc-color-2);
+}
+@media (max-width:480px){
+    .section_buttons{
+        flex-direction: column;
+    }
+}
+@media(max-width:320px){
+  .tic_tac_toe_buttons{
+    width:60px; 
+    margin-left: 15px;
+    gap:var(--rtc-gap-xs)
+  }
+  
+}

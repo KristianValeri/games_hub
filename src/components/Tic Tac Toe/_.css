@@ -1,0 +1,19 @@
+.tic_tac_toe_section {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: var(--rtc-gap-s);
+  justify-content: center;
+  align-items: center;
+}
+
+.tic_tac_toe_buttons {
+  height: 95px;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: gray;
+}
+
+.tic_tac_toe_buttons:hover {
+  background-color: var(--rtc-color-5);
+}
