@@ -1,6 +1,6 @@
 import './rock-paper-scissors.css';
 import { addPlayerPoint, checkwinner } from './decide-winner';
-import { createImage } from '../images/createImage';
+import { createImage } from '../createImage';
 
 export function loadRockPaperScissors() {
   let optionPlayer = document.createElement('section');
