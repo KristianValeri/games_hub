@@ -2,7 +2,7 @@ import './style.css'
 import { gamesButtons } from './components/buttons/_'
 import { loadRockPaperScissors } from './components/RockPaperScissors/_'
 import { loadTic } from './components/Tic Tac Toe/_'
-import { loadHangman } from './components/Hangman/_'
+import { loadHangman } from './components/Hangman/hangman'
 
 let divAPP = document.getElementById('app')
 

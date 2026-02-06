@@ -1,4 +1,4 @@
-import './_.css'
+import './hangman.css'
 
 const wordsAvailable = ['javascript', 'python', 'casa', 'programacion', 'desarrollo', 'hangman', 'juego', 'computadora']
 
@@ -11,6 +11,10 @@ function getMaskedWord(letters) {
     .split('')
     .map(letter => letters.includes(letter) ? letter : '_')
     .join(' ')
+}
+
+function includeInSecretWord(letter) {
+   return SECRET_WORD.includes(letter)
 }
 
 function checkWin() {
@@ -34,19 +38,26 @@ export function loadHangman() {
   const button = document.createElement('button')
   button.textContent = 'Guess'
 
-  const MAX_ATTEMPTS = 5
+  let userFails = 0
 
   button.onclick = function() {
     const letter = input.value.toLowerCase()
-    if (guessedLetters.length == MAX_ATTEMPTS) {
-      wordDisplay.textContent = 'YOU LOSE! the word is: ' + SECRET_WORD;
-      return;
-    }
 
     if (letter && !guessedLetters.includes(letter)) {
-      guessedLetters.push(letter)
-      wordDisplay.textContent = getMaskedWord(guessedLetters)
-      lettersDisplay.textContent = guessedLetters.join(', ')
+      if(includeInSecretWord(letter)) {
+        guessedLetters.push(letter);
+        wordDisplay.textContent = getMaskedWord(guessedLetters);
+        lettersDisplay.textContent = guessedLetters.join(', ');
+      } else {
+        userFails++;
+
+        console.log({ userFails })
+
+        if (userFails >= 5) {
+          wordDisplay.textContent = 'GAME OVER! The word was: ' + SECRET_WORD
+          button.disabled = true
+        }
+      }
 
       if (checkWin()) {
         wordDisplay.textContent = 'YOU WIN! ' + SECRET_WORD
