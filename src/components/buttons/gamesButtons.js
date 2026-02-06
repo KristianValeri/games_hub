@@ -1,4 +1,4 @@
-import "./_.css"
+import "./buttons.css"
 
 export function gamesButtons(){
   let section = document.createElement("section")

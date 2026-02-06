@@ -1,5 +1,6 @@
-Por accesibilidad toda página debería tener, la arquitectura y el uso de las etiquetas correctas; en este caso, debería, al menos, tener las etiquetas header y main y no directamente un div donde se renderice toda la app.
-Los archivos, al igual que las variables, deben tener nombres descriptivos. Todos tus archivos se llaman _. Si tengo varios abiertos en el VSC, ¿cómo identificar cuál es cuál?. Recuerda que no programamos solo para nosotros. Nuestro código debe ser legible y entendible para cualquier programador. Si tienes una carpeta Hangman, en la que vas a tener los archivos de ese juego, lo lógico es que se llamen hangman.js y hangman.css
+DONE - Por accesibilidad toda página debería tener, la arquitectura y el uso de las etiquetas correctas; en este caso, debería, al menos, tener las etiquetas header y main y no directamente un div donde se renderice toda la app.
+
+DONE - Los archivos, al igual que las variables, deben tener nombres descriptivos. Todos tus archivos se llaman _. Si tengo varios abiertos en el VSC, ¿cómo identificar cuál es cuál?. Recuerda que no programamos solo para nosotros. Nuestro código debe ser legible y entendible para cualquier programador. Si tienes una carpeta Hangman, en la que vas a tener los archivos de ese juego, lo lógico es que se llamen hangman.js y hangman.css
 
 
 Lo ideal es que, en lugar de usar los alerts del sistema, crees tus propios modales para interactuar con el usuario.

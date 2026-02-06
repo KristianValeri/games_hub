@@ -1,4 +1,4 @@
-import "./_.css"
+import "./image.css"
 
 
 export function createImage (src, style, alt){

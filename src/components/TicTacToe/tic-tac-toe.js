@@ -49,6 +49,13 @@ function getRandomFreeIndex(boardColors) {
 // ====== INTERFAZ Y DOM ======
 
 export function loadTic() {
+  const container = document.createElement('div')
+  container.className = 'tic_tac_toe_container'
+
+  const messageDisplay = document.createElement('p')
+  messageDisplay.id = 'ttt_message'
+  messageDisplay.className = 'ttt_message'
+
   const section = document.createElement('section')
   section.className = 'tic_tac_toe_section'
 
@@ -56,40 +63,48 @@ export function loadTic() {
     const button = document.createElement('button')
     button.className = 'tic_tac_toe_buttons'
     button.style.backgroundColor = DEFAULT_COLOR
-    attachButtonFunctionality(button, section)
+    attachButtonFunctionality(button, section, messageDisplay)
     section.appendChild(button)
   }
 
-  return section
+  container.appendChild(messageDisplay)
+  container.appendChild(section)
+
+  return container
 }
 
-function checkGameWinner(buttons, name) {
+function showMessage(messageDisplay, text) {
+  messageDisplay.textContent = text
+}
+
+function checkGameWinner(buttons, name, messageDisplay) {
   const boardColors = getBoardColors(buttons);
 
   if (checkWinner(boardColors)) {
-    alert(`${name} won the game`);
+    showMessage(messageDisplay, `${name} won the game!`);
     resetGame(buttons);
     return;
   }
 
   if (checkTie(boardColors)) {
-    alert('Is tie');
+    showMessage(messageDisplay, "It's a tie!");
     resetGame(buttons);
     return;
   }
 }
 
-function attachButtonFunctionality(button, section) {
+function attachButtonFunctionality(button, section, messageDisplay) {
   button.onclick = function () {
     if (button.disabled) return
 
     const buttons = section.querySelectorAll('.tic_tac_toe_buttons')
+    showMessage(messageDisplay, '')
 
     // Jugador hace su movimiento
     button.style.backgroundColor = GREEN_COLOR
     button.disabled = true
 
-    checkGameWinner(buttons, 'Player');
+    checkGameWinner(buttons, 'Player', messageDisplay);
     disableAllButtons(buttons);
 
     // IA hace su movimiento con delay para que se vea
@@ -98,7 +113,7 @@ function attachButtonFunctionality(button, section) {
 
       // Dar tiempo al navegador para renderizar el color rojo
       setTimeout(() => {
-        checkGameWinner(buttons, 'IA');
+        checkGameWinner(buttons, 'IA', messageDisplay);
         enableFreeButtons(buttons)
       }, 300)
     }, 400)

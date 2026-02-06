@@ -1,5 +1,5 @@
 import './style.css'
-import { gamesButtons } from './components/buttons/_'
+import { gamesButtons } from './components/buttons/gamesButtons'
 import { loadRockPaperScissors } from './components/RockPaperScissors/rock-paper-scissors'
 import { loadTic } from './components/TicTacToe/tic-tac-toe'
 import { loadHangman } from './components/Hangman/hangman'
