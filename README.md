@@ -8,11 +8,16 @@ Guardas los datos en el localStorage; pero los datos no son permanentes, porque:
 
 
 Tres en raya
-La secuencia de habilitación y deshabilitación de botones tiene bug. Si el jugador gana o empata, checkGameWinner hace resetGame(buttons) y retorna… pero igual ejecutas disableAllButtons después. Y luego del game over igual se re-habilitan los botones (esto es, juego terminado pero clicable... no se nota porque lo reinicias, pero en la lógica se puede)
+DONE - La secuencia de habilitación y deshabilitación de botones tiene bug. Si el jugador gana o empata, checkGameWinner hace resetGame(buttons) y retorna… pero igual ejecutas disableAllButtons después. Y luego del game over igual se re-habilitan los botones (esto es, juego terminado pero clicable... no se nota porque lo reinicias, pero en la lógica se puede)
 La IA puede jugar en un tablero recién reseteado, producto del bug de habilitación y deshabilitación de botones. Aunque sea un juego nuevo, para “ella” es su turno. También podría seguir jugando aunque el tablero esté lleno
 RPS
-Función addPlayerPoint: en la condición else if (winner = "ia") utilizas un operador de asignación (=) en lugar de un operador de comparación (===), lo que provoca que la variable winner siempre se asigne a "ia" si el jugador no gana, resultando en que la IA siempre obtenga un punto si no hay victoria del jugador, impidiendo el manejo correcto de los empates.
-Hangman
+
+Se reinicia el juego
+
+
+DONE - Función addPlayerPoint: en la condición else if (winner = "ia") utilizas un operador de asignación (=) en lugar de un operador de comparación (===), lo que provoca que la variable winner siempre se asigne a "ia" si el jugador no gana, resultando en que la IA siempre obtenga un punto si no hay victoria del jugador, impidiendo el manejo correcto de los empates.
+
+DONE - Hangman
 Si es un Hangman, ¿dónde está el ahorcado? Esa es la interacción que espera el usuario, que por cada fallo se vaya haciendo la imagen del ahorcado. Tal como lo tienes, el usuario no sabe cuántas oportunidades tiene ni cuando está cerca de ser “ahorcado”. Debes añadir la imagen si seleccionaste este juego.
 
 
