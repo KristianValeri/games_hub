@@ -25,6 +25,11 @@ export function loadHangman() {
   const section = document.createElement('section')
   section.className = 'hangman_section'
 
+  const winsDisplay = document.createElement('div')
+  winsDisplay.className = 'hangman_wins'
+  let wins = parseInt(localStorage.getItem('hangman_wins')) || 0
+  winsDisplay.textContent = 'Victorias: ' + wins
+
   const wordDisplay = document.createElement('b')
   wordDisplay.textContent = getMaskedWord(guessedLetters)
 
@@ -141,12 +146,18 @@ export function loadHangman() {
 
       if (checkWin()) {
         wordDisplay.textContent = 'YOU WIN! ' + SECRET_WORD
+        input.disabled = true
+        resetButton.style.display = 'block'
+        wins++
+        localStorage.setItem('hangman_wins', wins)
+        winsDisplay.textContent = 'Victorias: ' + wins
       }
     }
 
     input.value = ''
   }
 
+  section.appendChild(winsDisplay)
   section.appendChild(wordDisplay)
   section.appendChild(input)
   section.appendChild(hangmanDrawing)
