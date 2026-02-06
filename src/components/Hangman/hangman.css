@@ -15,6 +15,12 @@
   line-height: 1.2;
   font-size: 16px;
 }
+
+.hangman_reset {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 @media(max-width:480px){
 .hangman_section{
     flex-direction: column;

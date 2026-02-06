@@ -38,6 +38,14 @@ export function loadHangman() {
   const hangmanDrawing = document.createElement('div')
   hangmanDrawing.className = 'hangman_drawing'
 
+  const resetButton = document.createElement('button')
+  resetButton.textContent = 'Jugar de nuevo'
+  resetButton.className = 'hangman_reset'
+  resetButton.style.display = 'none'
+  resetButton.onclick = function() {
+    location.reload()
+  }
+
   function updateHangmanDrawing(fails) {
     const stages = [
       // 0 fallos - solo la horca
@@ -127,6 +135,7 @@ export function loadHangman() {
         if (userFails >= 6) {
           wordDisplay.textContent = 'GAME OVER! La palabra era: ' + SECRET_WORD
           input.disabled = true
+          resetButton.style.display = 'block'
         }
       }
 
@@ -141,6 +150,7 @@ export function loadHangman() {
   section.appendChild(wordDisplay)
   section.appendChild(input)
   section.appendChild(hangmanDrawing)
+  section.appendChild(resetButton)
   section.appendChild(lettersDisplay);
 
   return section
