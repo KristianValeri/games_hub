@@ -37,7 +37,7 @@ export function addPlayerPoint(playerOption, iaOption){
         let pointPlayerSpan = document.getElementById("span_player_points")
         pointPlayerSpan.textContent = parseInt(pointPlayerSpan.textContent) + 1
         localStorage.setItem('rps_player', pointPlayerSpan.textContent)
-    }else if(winner = "ia"){
+    }else if(winner === "ia"){
         let pointIaSpan = document.getElementById("span_ia_points")
         pointIaSpan.textContent = parseInt(pointIaSpan.textContent) + 1
         localStorage.setItem('rps_ia', pointIaSpan.textContent)
@@ -52,15 +52,7 @@ export function checkwinner(){
     let iaPoints = parseInt (spanIaPoints.textContent)
     if(playerPoints === 3){
         alert ("The winner is the player")
-        spanPlayerPoints.textContent = 0
-        spanIaPoints.textContent = 0
-        localStorage.setItem('rps_player', 0)
-        localStorage.setItem('rps_ia', 0)
     }else if(iaPoints === 3){
         alert("The winner is the Ia")
-        spanPlayerPoints.textContent = 0
-        spanIaPoints.textContent = 0
-        localStorage.setItem('rps_player', 0)
-        localStorage.setItem('rps_ia', 0)
     }
 }

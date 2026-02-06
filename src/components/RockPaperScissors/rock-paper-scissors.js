@@ -1,4 +1,4 @@
-import { addPlayerPoint, checkwinner } from '../../_js/RockPaperScissors/DecideWinner/_'
+import { addPlayerPoint, checkwinner } from './decide-winner'
 import { createImage } from '../images/_'
 
 export function loadRockPaperScissors() {
