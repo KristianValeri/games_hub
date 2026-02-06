@@ -4,22 +4,23 @@ import { loadRockPaperScissors } from './components/RockPaperScissors/_'
 import { loadTic } from './components/TicTacToe/tic-tac-toe'
 import { loadHangman } from './components/Hangman/hangman'
 
-let divAPP = document.getElementById('app')
+const header = document.getElementById('header')
+const main = document.getElementById('app')
 
-let sectionButtons = gamesButtons()
-divAPP.appendChild(sectionButtons)
+header.className = 'games_header'
+header.appendChild(gamesButtons())
 
 let selectedGame = localStorage.getItem('game')
 
 if (selectedGame === 'rockpaperscissors') {
-  divAPP.appendChild(loadRockPaperScissors())
+  main.appendChild(loadRockPaperScissors())
 }
 
 if (selectedGame === 'tictactoe') {
-  divAPP.appendChild(loadTic())
+  main.appendChild(loadTic())
 }
 
 if (selectedGame === 'hangman') {
-  divAPP.appendChild(loadHangman())
+  main.appendChild(loadHangman())
 }
 

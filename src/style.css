@@ -69,3 +69,15 @@ body {
   --rtc-gap-l: 40px;
   --rtc-gap-xl: 50px;
 }
+
+.games_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--rtc-padding-s);
+  background-color: var(--rtc-color-3);
+}
+
+#app {
+  padding: var(--rtc-padding-s);
+}
