@@ -1,0 +1,47 @@
+.option_player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rtc-gap-s);
+}
+
+.points_container {
+  display: flex;
+  gap: var(--rtc-gap-l);
+  font-size: 20px;
+  color: var(--rtc-color-4);
+}
+
+.rps_message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 32px;
+  color: var(--rtc-color-6);
+  padding: var(--rtc-padding-xs);
+}
+
+.buttons_container {
+  display: flex;
+  gap: var(--rtc-gap-m);
+  justify-content: center;
+}
+
+.button_player_options {
+  background: none;
+  border: 2px solid var(--rtc-color-1);
+  border-radius: var(--rtc-br);
+  padding: var(--rtc-padding-s);
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.button_player_options:hover {
+  transform: scale(1.1);
+  border-color: var(--rtc-color-6);
+}
+
+.img_play {
+  width: 80px;
+  height: 80px;
+}

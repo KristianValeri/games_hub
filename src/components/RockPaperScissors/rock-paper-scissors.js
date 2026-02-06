@@ -1,3 +1,4 @@
+import './rock-paper-scissors.css'
 import { addPlayerPoint, checkwinner } from './decide-winner'
 import { createImage } from '../images/_'
 
@@ -24,17 +25,26 @@ export function loadRockPaperScissors() {
   let imgPaper = createImage('./assets/paper.png', 'img_play', 'paper')
   let imgScissors = createImage('./assets/scissors.png', 'img_play', 'scissors')
 
+  let messageDisplay = document.createElement('p')
+  messageDisplay.id = 'rps_message'
+  messageDisplay.className = 'rps_message'
+
+  let buttonsContainer = document.createElement('div')
+  buttonsContainer.className = 'buttons_container'
+
   pointsContainer.appendChild(playerPoints)
   pointsContainer.appendChild(iaPoints)
   optionPlayer.appendChild(pointsContainer)
+  optionPlayer.appendChild(messageDisplay)
 
   btnRock.appendChild(imgRock)
   btnPaper.appendChild(imgPaper)
   btnScissors.appendChild(imgScissors)
 
-  optionPlayer.appendChild(btnRock)
-  optionPlayer.appendChild(btnPaper)
-  optionPlayer.appendChild(btnScissors)
+  buttonsContainer.appendChild(btnRock)
+  buttonsContainer.appendChild(btnPaper)
+  buttonsContainer.appendChild(btnScissors)
+  optionPlayer.appendChild(buttonsContainer)
 
   buttonsFuncionality(btnRock)
   buttonsFuncionality(btnPaper)
