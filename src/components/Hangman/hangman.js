@@ -35,12 +35,84 @@ export function loadHangman() {
   input.type = 'text'
   input.maxLength = 1
 
-  const button = document.createElement('button')
-  button.textContent = 'Guess'
+  const hangmanDrawing = document.createElement('div')
+  hangmanDrawing.className = 'hangman_drawing'
+
+  function updateHangmanDrawing(fails) {
+    const stages = [
+      // 0 fallos - solo la horca
+      `
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========`,
+      // 1 fallo - cabeza
+      `
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========`,
+      // 2 fallos - cuerpo
+      `
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========`,
+      // 3 fallos - un brazo
+      `
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========`,
+      // 4 fallos - dos brazos
+      `
+  +---+
+  |   |
+  O   |
+ /|\\ |
+      |
+      |
+=========`,
+      // 5 fallos - una pierna
+      `
+  +---+
+  |   |
+  O   |
+ /|\\ |
+ /    |
+      |
+=========`,
+      // 6 fallos - muerte
+      `
+  +---+
+  |   |
+  O   |
+ /|\\ |
+ / \\ |
+      |
+=========`
+    ]
+    hangmanDrawing.textContent = stages[fails] || stages[0]
+  }
+
+  updateHangmanDrawing(0)
 
   let userFails = 0
 
-  button.onclick = function() {
+  input.onkeydown = function(event) {
+    if (event.key !== 'Enter') return
     const letter = input.value.toLowerCase()
 
     if (letter && !guessedLetters.includes(letter)) {
@@ -50,24 +122,11 @@ export function loadHangman() {
         lettersDisplay.textContent = guessedLetters.join(', ');
       } else {
         userFails++;
+        updateHangmanDrawing(userFails)
 
-        console.log({ userFails })
-
-        if (userFails == 1) {
-          wordDisplay.textContent = 'O'
-        }
-        if (userFails == 2) {
-          wordDisplay.textContent = 'O\n|'
-        }
-        if (userFails == 3) {
-          wordDisplay.textContent = 'O\n|\n. .'
-        }
-        if (userFails == 4) {
-          wordDisplay.textContent = 'O\n-|-\n. .\n'
-        }
-        if (userFails >= 5) {
-          wordDisplay.textContent = 'x_x\n-|-\n. .\n    -  The word was: ' + SECRET_WORD
-          button.disabled = true
+        if (userFails >= 6) {
+          wordDisplay.textContent = 'GAME OVER! La palabra era: ' + SECRET_WORD
+          input.disabled = true
         }
       }
 
@@ -81,7 +140,7 @@ export function loadHangman() {
 
   section.appendChild(wordDisplay)
   section.appendChild(input)
-  section.appendChild(button)
+  section.appendChild(hangmanDrawing)
   section.appendChild(lettersDisplay);
 
   return section
