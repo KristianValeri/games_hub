@@ -1,7 +1,7 @@
 import './style.css'
 import { gamesButtons } from './components/buttons/_'
 import { loadRockPaperScissors } from './components/RockPaperScissors/_'
-import { loadTic } from './components/Tic Tac Toe/_'
+import { loadTic } from './components/TicTacToe/tic-tac-toe'
 import { loadHangman } from './components/Hangman/hangman'
 
 let divAPP = document.getElementById('app')

@@ -53,8 +53,20 @@ export function loadHangman() {
 
         console.log({ userFails })
 
+        if (userFails == 1) {
+          wordDisplay.textContent = 'O'
+        }
+        if (userFails == 2) {
+          wordDisplay.textContent = 'O\n|'
+        }
+        if (userFails == 3) {
+          wordDisplay.textContent = 'O\n|\n. .'
+        }
+        if (userFails == 4) {
+          wordDisplay.textContent = 'O\n-|-\n. .\n'
+        }
         if (userFails >= 5) {
-          wordDisplay.textContent = 'GAME OVER! The word was: ' + SECRET_WORD
+          wordDisplay.textContent = 'x_x\n-|-\n. .\n    -  The word was: ' + SECRET_WORD
           button.disabled = true
         }
       }

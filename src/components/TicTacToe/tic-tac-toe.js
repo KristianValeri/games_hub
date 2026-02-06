@@ -1,4 +1,4 @@
-import './_.css'
+import './tic-tac-toe.css'
 
 const GREEN_COLOR = 'rgb(34, 201, 34)'
 const RED_COLOR = 'rgb(255, 0, 0)'
