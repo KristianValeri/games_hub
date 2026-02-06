@@ -40,3 +40,19 @@
 .tic_tac_toe_buttons:disabled {
   cursor: not-allowed;
 }
+
+.ttt_reset {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--rtc-color-1);
+  border: none;
+  border-radius: var(--rtc-br);
+  color: var(--rtc-color-3);
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.ttt_reset:hover {
+  transform: scale(1.05);
+}

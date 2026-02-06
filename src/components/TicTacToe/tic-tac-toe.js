@@ -59,16 +59,25 @@ export function loadTic() {
   const section = document.createElement('section');
   section.className = 'tic_tac_toe_section';
 
+  const resetButton = document.createElement('button');
+  resetButton.textContent = 'Reiniciar';
+  resetButton.className = 'ttt_reset';
+  resetButton.style.display = 'none';
+  resetButton.onclick = function () {
+    window.location.reload();
+  };
+
   for (let i = 0; i < 9; i++) {
     const button = document.createElement('button');
     button.className = 'tic_tac_toe_buttons';
     button.style.backgroundColor = DEFAULT_COLOR;
-    attachButtonFunctionality(button, section, messageDisplay);
+    attachButtonFunctionality(button, section, messageDisplay, resetButton);
     section.appendChild(button);
   }
 
   container.appendChild(messageDisplay);
   container.appendChild(section);
+  container.appendChild(resetButton);
 
   return container;
 }
@@ -77,23 +86,23 @@ function showMessage(messageDisplay, text) {
   messageDisplay.textContent = text;
 }
 
-function checkGameWinner(buttons, name, messageDisplay) {
+function checkGameWinner(buttons, name, messageDisplay, resetButton) {
   const boardColors = getBoardColors(buttons);
 
   if (checkWinner(boardColors)) {
-    showMessage(messageDisplay, `${name} won the game! Click to play again`);
-    resetGame();
+    showMessage(messageDisplay, `${name} won the game!`);
+    resetGame(buttons, resetButton);
     return;
   }
 
   if (checkTie(boardColors)) {
-    showMessage(messageDisplay, "It's a tie! Click to play again");
-    resetGame();
+    showMessage(messageDisplay, "It's a tie!");
+    resetGame(buttons, resetButton);
     return;
   }
 }
 
-function attachButtonFunctionality(button, section, messageDisplay) {
+function attachButtonFunctionality(button, section, messageDisplay, resetButton) {
   button.onclick = function () {
     if (button.disabled) return;
 
@@ -104,7 +113,7 @@ function attachButtonFunctionality(button, section, messageDisplay) {
     button.style.backgroundColor = GREEN_COLOR;
     button.disabled = true;
 
-    checkGameWinner(buttons, 'Player', messageDisplay);
+    checkGameWinner(buttons, 'Player', messageDisplay, resetButton);
     disableAllButtons(buttons);
 
     // IA hace su movimiento con delay para que se vea
@@ -112,7 +121,7 @@ function attachButtonFunctionality(button, section, messageDisplay) {
 
     // Dar tiempo al navegador para renderizar el color rojo
     setTimeout(() => {
-      checkGameWinner(buttons, 'IA', messageDisplay);
+      checkGameWinner(buttons, 'IA', messageDisplay, resetButton);
       enableFreeButtons(buttons);
     }, 300);
   };
@@ -132,8 +141,9 @@ function iaMove(buttons) {
   }
 }
 
-function resetGame() {
-  window.location.reload();
+function resetGame(buttons, resetButton) {
+  disableAllButtons(buttons);
+  resetButton.style.display = 'block';
 }
 
 function disableAllButtons(buttons) {

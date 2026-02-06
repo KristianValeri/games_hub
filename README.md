@@ -21,4 +21,4 @@ DONE - Hangman
 Si es un Hangman, ¿dónde está el ahorcado? Esa es la interacción que espera el usuario, que por cada fallo se vaya haciendo la imagen del ahorcado. Tal como lo tienes, el usuario no sabe cuántas oportunidades tiene ni cuando está cerca de ser “ahorcado”. Debes añadir la imagen si seleccionaste este juego.
 
 
-En la lógica de MAX_ATTEMPTS cuentas el número total de letras adivinadas (guessedLetters.length), en lugar del número de intentos incorrectos. Esto hace que el juego termine prematuramente tras 5 adivinanzas, sin importar si fueron correctas o no.
+DONE - En la lógica de MAX_ATTEMPTS cuentas el número total de letras adivinadas (guessedLetters.length), en lugar del número de intentos incorrectos. Esto hace que el juego termine prematuramente tras 5 adivinanzas, sin importar si fueron correctas o no.
