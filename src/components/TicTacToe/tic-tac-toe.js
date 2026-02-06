@@ -92,14 +92,16 @@ function checkGameWinner(buttons, name, messageDisplay, resetButton) {
   if (checkWinner(boardColors)) {
     showMessage(messageDisplay, `${name} won the game!`);
     resetGame(buttons, resetButton);
-    return;
+    return true;
   }
 
   if (checkTie(boardColors)) {
     showMessage(messageDisplay, "It's a tie!");
     resetGame(buttons, resetButton);
-    return;
+    return true;
   }
+
+  return false;
 }
 
 function attachButtonFunctionality(button, section, messageDisplay, resetButton) {
@@ -113,15 +115,21 @@ function attachButtonFunctionality(button, section, messageDisplay, resetButton)
     button.style.backgroundColor = GREEN_COLOR;
     button.disabled = true;
 
-    checkGameWinner(buttons, 'Player', messageDisplay, resetButton);
+    // Si el jugador ganó, no continuar
+    if (checkGameWinner(buttons, 'Player', messageDisplay, resetButton)) {
+      return;
+    }
+
     disableAllButtons(buttons);
 
-    // IA hace su movimiento con delay para que se vea
+    // IA hace su movimiento
     iaMove(buttons);
 
     // Dar tiempo al navegador para renderizar el color rojo
     setTimeout(() => {
-      checkGameWinner(buttons, 'IA', messageDisplay, resetButton);
+      if (checkGameWinner(buttons, 'IA', messageDisplay, resetButton)) {
+        return;
+      }
       enableFreeButtons(buttons);
     }, 300);
   };
