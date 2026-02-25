@@ -1,0 +1,40 @@
+.hangman_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-family: monospace;
+  font-size: 18px;
+  color:var(--rtc-color-1);
+  gap:var(--rtc-gap-s)
+}
+
+.hangman_drawing {
+  white-space: pre;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+.hangman_reset {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hangman_wins {
+  font-weight: bold;
+  font-size: 14px;
+}
+@media(max-width:480px){
+.hangman_section{
+    flex-direction: column;
+    gap:var(--rtc-gap-s)
+  }
+}
+@media(max-width:320px){
+  .hangman_section{
+    flex-direction: column;
+    gap:var(--rtc-gap-s)
+  }
+}

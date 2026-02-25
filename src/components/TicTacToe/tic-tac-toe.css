@@ -1,0 +1,58 @@
+.tic_tac_toe_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rtc-gap-s);
+}
+
+.ttt_message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 32px;
+  color: var(--rtc-color-6);
+  padding: var(--rtc-padding-xs);
+}
+
+.tic_tac_toe_section {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: var(--rtc-gap-xs);
+  justify-content: center;
+  align-items: center;
+}
+
+.tic_tac_toe_buttons {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  border: 2px solid var(--rtc-color-1);
+  border-radius: var(--rtc-br);
+  background-color: white;
+  transition: transform 0.2s;
+}
+
+.tic_tac_toe_buttons:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.tic_tac_toe_buttons:disabled {
+  cursor: not-allowed;
+}
+
+.ttt_reset {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--rtc-color-1);
+  border: none;
+  border-radius: var(--rtc-br);
+  color: var(--rtc-color-3);
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.ttt_reset:hover {
+  transform: scale(1.05);
+}
